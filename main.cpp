@@ -136,7 +136,24 @@ public:
     }
 
     T operator[](int pos){
+      Node<T>* temp = head;
+      if (temp == NULL){
+        throw out_of_range("La lista está vacia.");
+      }
+      else{
+        if (pos == 0)
+          return temp->data;
+        else{
+          for(int i=0; i< pos; i++){
+            temp = temp->next;
+            if (temp == NULL){
+              throw out_of_range("Fuera de rango.");
+            }
+          }
+          return temp->data;
+        }
 
+      }
     }
 
     bool empty(){
